@@ -1,0 +1,114 @@
+body {
+  background-color: #120000; /* deep dark red/black */
+  color: #f4e9d8; /* warm gold-tinted white */
+  font-family: "GaisyerMono", monospace;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  color: #d40000; /* Shang-Chi red */
+  font-size: 70px;
+  font-family: "typefesse", sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #d40000, 0 0 25px #ff8800;
+  transition: 0.3s ease-in-out;
+}
+
+h1:hover {
+  color: #ffcc33; /* Ten Rings gold */
+  text-shadow: 0 0 25px #ffcc33, 0 0 40px #d40000, 0 0 60px #0099ff;
+  transform: scale(1.04);
+}
+
+/* ASCII Glow */
+.ascii-art {
+  white-space: pre;
+  font-family: monospace;
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+  overflow-x: auto;
+  color: #d40000;
+  text-shadow: 0 0 5px #d40000, 0 0 10px #ff8800;
+  animation: ringsPulse 2.2s infinite alternate;
+}
+
+@keyframes ringsPulse {
+  0% {
+    color: #d40000; /* red */
+    text-shadow: 0 0 5px #d40000, 0 0 15px #ff3300;
+  }
+  50% {
+    color: #ffcc33; /* gold */
+    text-shadow: 0 0 10px #ffcc33, 0 0 30px #ffaa00;
+  }
+  100% {
+    color: #0099ff; /* Wenwu blue */
+    text-shadow: 0 0 10px #0099ff, 0 0 25px #0055aa;
+  }
+}
+
+/* FLEXBOX LAYOUT */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 40px;
+  gap: 40px;
+}
+
+.left img {
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #d40000;
+  transition: 0.3s ease-in-out;
+}
+
+.left img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 30px #ffcc33;
+}
+
+.right {
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* SECTION TITLES */
+h3 {
+  color: #ffcc33;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+/* ✅ MOBILE BREAKPOINT */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 45px;
+  }
+
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left img {
+    max-width: 90%;
+  }
+
+  .right {
+    padding: 0 20px;
+  }
+
+  .ascii-art {
+    font-size: 8px;
+  }
+}

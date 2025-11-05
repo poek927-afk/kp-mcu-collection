@@ -1,0 +1,37 @@
+body {
+    background-color: #ea8922;
+    padding: 50px;
+    font-family: "Zen Loop", cursive;
+    .zen-loop-regular {
+  font-family: "Zen Loop", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.zen-loop-regular-italic {
+  font-family: "Zen Loop", cursive;
+  font-weight: 400;
+  font-style: italic;
+}
+
+}
+
+
+#myTitle {
+  color: rgb(140, 96, 39);
+}
+h1{
+    text-align: center;
+    color: #000308;
+    font-size: 120px;
+    font-style: italic;
+}
+
+a:link {
+color: rgb(35, 32, 28);
+font-size: 100px;
+}
+
+h2{
+     font-family: 'Courier New', monospace;
+}

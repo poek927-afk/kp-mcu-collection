@@ -1,0 +1,111 @@
+body {
+  background-color: #2b0000; /* deep metallic red */
+  color: #f5e6ca; /* soft gold text */
+  font-family: "GaisyerMono", monospace;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  color: #ffcc00; /* Stark gold */
+  font-size: 80px;
+  font-family: "typefesse", sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.7), 0 0 40px rgba(255, 80, 0, 0.4);
+  transition: all 0.4s ease-in-out;
+}
+
+/* 🔥 Arc reactor glow effect on hover */
+h1:hover {
+  color: #00eaff; /* arc reactor blue */
+  text-shadow: 0 0 25px rgba(0, 234, 255, 0.9),
+               0 0 50px rgba(255, 204, 0, 0.7),
+               0 0 80px rgba(255, 80, 0, 0.5);
+  transform: scale(1.03);
+}
+
+.ascii-art {
+  white-space: pre;
+  font-family: monospace;
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+  overflow-x: auto;
+  color: #f5e6ca; /* base gold color */
+  text-shadow: 0 0 5px #ffcc00, 0 0 10px #ff8000;
+  animation: glowPulse 2s infinite alternate;
+}
+
+/* 🔥 Arc Reactor Glow Pulse Animation */
+@keyframes glowPulse {
+  0% {
+    color: #f5e6ca;
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ff8000;
+  }
+  50% {
+    color: #00eaff; /* arc reactor blue */
+    text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+  }
+  100% {
+    color: #f5e6ca;
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ff8000;
+  }
+}
+
+/* Flexbox layout */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 40px;
+  gap: 40px;
+}
+
+.left img {
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.left img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 234, 255, 0.6);
+}
+
+.right {
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+h3 {
+  color: #ff4000; /* repulsor red-orange */
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left img {
+    max-width: 90%;
+  }
+
+  .right {
+    padding: 0 20px;
+  }
+}

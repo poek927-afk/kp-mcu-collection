@@ -1,0 +1,108 @@
+/* Font faces */
+@font-face {
+    font-family: "GaisyerMono";
+    src: url("/entries/week5/fonts/ABCGaisyrMono-Book-Trial.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "typefesse";
+    src: url("/entries/week5/fonts/Typefesse_Claire-Obscure.woff2") format("woff2");
+}
+
+/* Body styles */
+body {
+    background-color: #02327f;
+    padding: 50px;
+    color: #f0f2f4;
+    font-family: "GaisyerMono", monospace;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Titles */
+h1 {
+  text-align: center;
+  color: #ff0000; /* spider-red */
+  font-size: 80px;
+  font-family: "typefesse", sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ff0000;
+  transition: all 0.4s ease-in-out;
+}
+
+h1:hover {
+  color: #00aaff; /* bright web blue */
+  text-shadow: 0 0 20px #00aaff, 0 0 40px #ff0000;
+  transform: scale(1.03);
+}
+
+/* ASCII art glow animation */
+.ascii-art {
+  white-space: pre;
+  font-family: monospace;
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+  overflow-x: auto;
+  color: #ff0000;
+  text-shadow: 0 0 5px #ff0000;
+  animation: spiderGlow 2s infinite alternate;
+}
+
+@keyframes spiderGlow {
+  0% {
+    color: #ff0000;
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #aa0000;
+  }
+  50% {
+    color: #00aaff;
+    text-shadow: 0 0 10px #00aaff, 0 0 20px #005577;
+  }
+  100% {
+    color: #ff0000;
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #aa0000;
+  }
+}
+
+h2 {
+    text-align: center;
+    font-family: "GaisyerMono", monospace;
+    color: #f0f2f4;
+    font-size: 60px;
+}
+
+.redTitles {
+    color: rgb(253, 252, 252);
+}
+
+.blueTitles {
+    color: rgb(245, 7, 7);
+    font-style: italic;
+    
+}
+
+/* Flexbox for image + text section */
+.movie-section {
+    display: flex;
+    flex-direction: row; /* side by side */
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+    flex-wrap: wrap; /* stacks on smaller screens */
+}
+
+.movie-section img {
+    max-width: 400px;
+    height: auto;
+    border: 2px solid #000;
+}
+
+.movie-text {
+    max-width: 600px; /* controls text width */}

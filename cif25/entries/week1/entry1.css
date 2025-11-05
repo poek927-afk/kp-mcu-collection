@@ -1,0 +1,108 @@
+body {
+  background-color: #100025; /* deep violet background */
+  color: #f0f2f4;
+  font-family: "GaisyerMono", monospace;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  color: #9b59b6; /* vibrant purple */
+  font-size: 80px;
+  font-family: "typefesse", sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #9b59b6, 0 0 30px #8e44ad;
+  transition: all 0.4s ease-in-out;
+}
+
+h1:hover {
+  color: #f1c40f; /* gold accent */
+  text-shadow: 0 0 20px #f1c40f, 0 0 40px #9b59b6;
+  transform: scale(1.03);
+}
+
+/* ASCII art glow animation */
+.ascii-art {
+  white-space: pre;
+  font-family: monospace;
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+  overflow-x: auto;
+  color: #9b59b6;
+  text-shadow: 0 0 5px #9b59b6, 0 0 10px #8e44ad;
+  animation: pantherGlow 2s infinite alternate;
+}
+
+@keyframes pantherGlow {
+  0% {
+    color: #9b59b6;
+    text-shadow: 0 0 5px #9b59b6, 0 0 10px #8e44ad;
+  }
+  50% {
+    color: #f1c40f;
+    text-shadow: 0 0 10px #f1c40f, 0 0 20px #9b59b6;
+  }
+  100% {
+    color: #9b59b6;
+    text-shadow: 0 0 5px #9b59b6, 0 0 10px #8e44ad;
+  }
+}
+
+/* Flexbox layout */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 40px;
+  gap: 40px;
+}
+
+.left img {
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #9b59b6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.left img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #f1c40f;
+}
+
+.right {
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+h3 {
+  color: #f1c40f; /* gold accent */
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 50px;
+  }
+
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left img {
+    max-width: 90%;
+  }
+
+  .right {
+    padding: 0 20px;
+  }
+}
