@@ -1,0 +1,129 @@
+/* GLOBAL */
+body {
+  background: radial-gradient(circle at top, #2d1e44, #0d0d15 70%);
+  color: #e8e8ff;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+/* NAVIGATION */
+.nav {
+  margin-bottom: 30px;
+}
+
+.nav-link {
+  color: #2AB7CA;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  color: #E92063;
+  text-shadow: 0 0 10px #E92063;
+}
+
+/* TITLE */
+.title {
+  text-align: center;
+  color: #E92063;
+  font-size: 70px;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* FLEX LAYOUT */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 40px;
+  animation: floatFade 2s ease-out;
+}
+
+.left, .right {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* ASCII ART */
+.ascii-art {
+  white-space: pre;
+  overflow-x: auto;
+  font-size: 10px;
+  font-family: monospace;
+  color: #a678ff;
+  text-shadow: 0 0 12px #7A2FA4, 0 0 20px #2AB7CA;
+  animation: cosmicPulse 2.5s infinite alternate;
+}
+
+/* RIGHT TEXT */
+.right h2 {
+  color: #2AB7CA;
+  font-size: 40px;
+}
+
+.right p {
+  line-height: 1.6;
+  color: #e8e8ff;
+  font-size: 18px;
+}
+
+/* ANIMATIONS --------------------------------------------------*/
+
+@keyframes cosmicPulse {
+  0% {
+    color: #a678ff;
+    text-shadow: 0 0 8px #7A2FA4, 0 0 20px #2AB7CA;
+  }
+  50% {
+    color: #E92063;
+    text-shadow: 0 0 12px #E92063, 0 0 25px #2AB7CA;
+  }
+  100% {
+    color: #2AB7CA;
+    text-shadow: 0 0 10px #2AB7CA, 0 0 30px #7A2FA4;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE BREAKPOINT ------------------------------------------*/
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 45px;
+  }
+
+  .ascii-art {
+    font-size: 7px;
+  }
+
+  .right {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 32px;
+  }
+  .ascii-art {
+    font-size: 5px;
+  }
+}
