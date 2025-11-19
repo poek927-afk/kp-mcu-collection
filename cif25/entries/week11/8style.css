@@ -1,187 +1,227 @@
-/* GLOBAL ----------------------------------------------------- */
+/* -----------------------
+   GOTG Entry
+
+/* BASE / STARFIELD */
+:root{
+  --gotg-purple: #7A2FA4;
+  --gotg-teal:   #2AB7CA;
+  --gotg-mag:    #E92063;
+  --bg-dark:     #0d0d15;
+  --text:        #e8e8ff;
+}
+
+* { box-sizing: border-box; }
 
 body {
-  background: radial-gradient(circle at top, #2d1e44, #0d0d15 70%);
-  color: #f0f0ff;
-  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 20px;
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: radial-gradient(circle at top, #2d1e44 0%, var(--bg-dark) 70%);
+  color: var(--text);
+  overflow-x: hidden;
 }
 
-/* NAVIGATION -------------------------------------------------- */
-
-.nav {
-  margin-bottom: 30px;
+/* subtle starfield underlay */
+body::before{
+  content: "";
+  position: fixed;
+  inset: -20%;
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, #ffffff33, transparent),
+    radial-gradient(1px 1px at 30% 40%, #ffffff26, transparent),
+    radial-gradient(1px 1px at 70% 30%, #ffffff22, transparent),
+    radial-gradient(1px 1px at 50% 80%, #ffffff1a, transparent);
+  z-index: -2;
+  animation: starDrift 40s linear infinite;
+  pointer-events: none;
+  transform: translateZ(0);
 }
 
+@keyframes starDrift {
+  from { transform: translate(0,0); }
+  to   { transform: translate(-400px,-300px); }
+}
+
+/* NAV */
+.nav { margin-bottom: 24px; }
 .nav-link {
-  color: #2AB7CA;
-  font-size: 20px;
-  text-decoration: none;
+  color: var(--gotg-teal);
+  font-size: 18px;
   font-weight: 600;
-  transition: 0.3s ease;
+  text-decoration: none;
+  transition: color .25s ease, text-shadow .25s ease;
+}
+.nav-link:hover { color: var(--gotg-mag); text-shadow: 0 0 10px var(--gotg-mag); }
+
+/* MOVIE TITLE — match Shang-Chi type/style */
+.movie-title {
+  font-family: "typefesse", "Bebas Neue", sans-serif;
+  font-weight: 700;
+  font-size: 88px;
+  text-align: center;
+  margin: 0 0 28px 0;
+  letter-spacing: 1px;
+  color: var(--gotg-mag);
+  text-shadow: 0 0 15px var(--gotg-purple), 0 0 25px var(--gotg-teal);
+  animation: titleFade 1.3s ease-out both, titleFlicker 3.6s infinite;
 }
 
-.nav-link:hover {
-  color: #E92063;
-  text-shadow: 0 0 10px #E92063;
-}
-
-/* TITLE —  --------------------------- */
-
-.movie-title h1 {
-  color: #d40000; /* Shang-Chi red */
-  font-size: 70px;
-  font-family: "typefesse", sans-serif;
-  margin-bottom: 20px;
-  text-shadow: 0 0 15px #d40000, 0 0 25px #ff8800;
-  transition: 0.3s ease-in-out;
-}
-
-h1:hover {
-  color: #ffcc33; /* Ten Rings gold */
-  text-shadow: 0 0 25px #ffcc33, 0 0 40px #d40000, 0 0 60px #0099ff;
-  transform: scale(1.04);
-}
-/* FLEX ENTRY CONTAINER — SAME AS SHANG CHI ------------------- */
-
-.entry-container {
+/* ENTRY CONTAINER (flex) */
+.entry-container{
   display: flex;
-  gap: 40px;
+  gap: 36px;
   justify-content: center;
   align-items: flex-start;
-  padding: 20px;
-  animation: riseIn 1.4s ease-out;
+  padding: 10px 8px 60px;
+  animation: containerRise .9s ease-out both;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 .entry-left, .entry-right {
   flex: 1;
-  max-width: 600px;
+  max-width: 640px;
 }
 
-/* SECTION HEADING — SAME STYLE AS SHANG CHI ------------------ */
-
-.section-heading {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 55px;
-  color: #2AB7CA;
-  margin-bottom: 15px;
-}
-
-/* BODY TEXT --------------------------------------------------- */
-
-.entry-right p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-/* ASCII ART --------------------------------------------------- */
-
-.ascii-art {
+/* ASCII ART block */
+.ascii-art{
   white-space: pre;
   overflow-x: auto;
-  font-size: 11px;
   font-family: monospace;
+  font-size: 10px;
+  line-height: 1;
+  padding: 18px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.05));
   color: #b891ff;
-  text-shadow: 
-    0 0 12px #7A2FA4,
-    0 0 22px #2AB7CA,
-    0 0 32px #E92063;
-  animation: cosmicGlow 2.8s infinite alternate ease-in-out;
+  text-shadow:
+    0 0 12px var(--gotg-purple),
+    0 0 22px var(--gotg-teal),
+    0 0 32px var(--gotg-mag);
+  border: 2px solid rgba(186,140,255,0.12);
+  animation: asciiPulse 3s infinite alternate ease-in-out;
 }
 
-/* ANIMATIONS -------------------------------------------------- */
+/* RIGHT CONTENT */
+.section-heading{
+  font-family: "typefesse", sans-serif;
+  font-size: 44px;
+  margin: 0 0 14px;
+  color: var(--gotg-teal);
+  text-shadow: 0 0 8px rgba(42,183,202,0.16);
+}
 
-@keyframes cosmicGlow {
+.entry-right p{
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideInRight 1.2s ease-out .25s forwards;
+}
+
+/* image (if you later add a GIF in left) */
+.entry-left img{
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 0 18px rgba(122,47,164,0.25);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.entry-left img:hover{
+  transform: scale(1.04);
+  box-shadow: 0 0 28px rgba(233,32,99,0.35);
+}
+
+/* ------------------ ANIMATIONS ------------------ */
+
+@keyframes asciiPulse {
   0% {
-    text-shadow: 
-      0 0 10px #7A2FA4,
-      0 0 20px #2AB7CA;
     color: #b891ff;
-  }
-  50% {
     text-shadow:
-      0 0 14px #E92063,
-      0 0 30px #2AB7CA;
-    color: #E92063;
+      0 0 10px var(--gotg-purple),
+      0 0 20px var(--gotg-teal);
+    border-color: rgba(186,140,255,0.12);
+  }
+  45% {
+    color: var(--gotg-mag);
+    text-shadow:
+      0 0 18px var(--gotg-mag),
+      0 0 30px var(--gotg-teal);
+    border-color: rgba(233,32,99,0.14);
   }
   100% {
-    text-shadow: 
-      0 0 14px #2AB7CA,
-      0 0 40px #7A2FA4;
-    color: #2AB7CA;
+    color: var(--gotg-teal);
+    text-shadow:
+      0 0 14px var(--gotg-teal),
+      0 0 30px var(--gotg-purple);
+    border-color: rgba(42,183,202,0.14);
   }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
+@keyframes slideInRight {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes containerRise {
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes riseIn {
-  from { opacity: 0; transform: translateY(35px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes titleFade {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* MOBILE BREAKPOINTS — SAME AS SHANG CHI --------------------- */
-
-@media (max-width: 850px) {
-  .movie-title {
-    font-size: 70px;
+/* subtle flicker for neon title */
+@keyframes titleFlicker {
+  0%, 19%, 21%, 40%, 41%, 60%, 61%, 100% {
+    text-shadow: 0 0 15px var(--gotg-purple), 0 0 25px var(--gotg-teal), 0 0 35px var(--gotg-mag);
   }
-}
-
-@media (max-width: 768px) {
-  .entry-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .movie-title {
-    font-size: 55px;
-  }
-
-  .section-heading {
-    font-size: 45px;
-  }
-
-  .ascii-art {
-    font-size: 8px;
+  20%, 41.5%, 60.5% {
+    text-shadow: none;
   }
 }
 
-@media (max-width: 480px) {
-  .movie-title {
-    font-size: 42px;
-  }
-  .ascii-art {
-    font-size: 6px;
-  }
-  body {
-  background: radial-gradient(circle at top, #2d1e44, #0d0d15 70%);
-  overflow-x: hidden;
-}
-/* STARFIELD BACKGROUND EFFECT FOR CSS ANIMATION */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background-image:
-      radial-gradient(2px 2px at 20% 20%, #ffffff99, transparent),
-      radial-gradient(2px 2px at 80% 30%, #ffffff66, transparent),
-      radial-gradient(2px 2px at 50% 70%, #ffffff55, transparent),
-      radial-gradient(2px 2px at 10% 80%, #ffffff77, transparent);
-  animation: starDrift 40s linear infinite;
-  pointer-events: none;
-  z-index: -1;
+/* starfield movement (already above but ensure z layering) */
+@keyframes starDrift { from { transform: translate(0,0); } to { transform: translate(-400px,-300px); } }
+
+/* ------------------ RESPONSIVE / MOBILE ------------------ */
+
+@media (max-width: 1200px){
+  .movie-title { font-size: 72px; }
+  .section-heading { font-size: 38px; }
+  .entry-right p { font-size: 17px; }
+  .entry-left img { max-width: 380px; }
 }
 
-@keyframes starDrift {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(-300px, -300px); }
+@media (max-width: 850px){
+  .movie-title { font-size: 60px; }
+  .section-heading { font-size: 34px; }
 }
+
+@media (max-width: 768px){
+  .entry-container { flex-direction: column; align-items: center; gap: 22px; padding: 18px; }
+  .movie-title { font-size: 50px; margin-bottom: 18px; }
+  .section-heading { font-size: 30px; text-align: center; }
+  .ascii-art { font-size: 8px; padding: 12px; }
+  .entry-left, .entry-right { max-width: 92%; }
+  .nav-link { font-size: 16px; }
+  .entry-right p { animation: slideInRight 1s ease-out .15s forwards; }
+}
+
+@media (max-width: 480px){
+  .movie-title { font-size: 36px; }
+  .section-heading { font-size: 24px; }
+  .ascii-art { font-size: 6px; }
+  .entry-right p { font-size: 15px; line-height: 1.5; }
+}
+
+/* optional: larger desktop tweaks */
+@media (min-width: 1600px){
+  .movie-title { font-size: 110px; }
+  .entry-left img { max-width: 520px; }
+  .entry-container { gap: 50px; }
 }
