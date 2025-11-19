@@ -27,20 +27,22 @@ body {
   text-shadow: 0 0 10px #E92063;
 }
 
-/* TITLE — EXACT MATCH TO SHANG-CHI --------------------------- */
+/* TITLE —  --------------------------- */
 
-.movie-title {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 120px;
-  text-align: center;
-  margin: 0;
-  margin-bottom: 40px;
-  letter-spacing: 2px;
-  color: #E92063; /* GOTG pink highlight */
-  text-shadow: 0 0 15px #7A2FA4, 0 0 25px #2AB7CA;
-  animation: fadeIn 1.3s ease-out forwards;
+.movie-title h1 {
+  color: #d40000; /* Shang-Chi red */
+  font-size: 70px;
+  font-family: "typefesse", sans-serif;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px #d40000, 0 0 25px #ff8800;
+  transition: 0.3s ease-in-out;
 }
 
+h1:hover {
+  color: #ffcc33; /* Ten Rings gold */
+  text-shadow: 0 0 25px #ffcc33, 0 0 40px #d40000, 0 0 60px #0099ff;
+  transform: scale(1.04);
+}
 /* FLEX ENTRY CONTAINER — SAME AS SHANG CHI ------------------- */
 
 .entry-container {
