@@ -158,4 +158,30 @@ h1:hover {
   .ascii-art {
     font-size: 6px;
   }
+  body {
+  background: radial-gradient(circle at top, #2d1e44, #0d0d15 70%);
+  overflow-x: hidden;
+}
+/* STARFIELD BACKGROUND EFFECT FOR CSS ANIMATION */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image:
+      radial-gradient(2px 2px at 20% 20%, #ffffff99, transparent),
+      radial-gradient(2px 2px at 80% 30%, #ffffff66, transparent),
+      radial-gradient(2px 2px at 50% 70%, #ffffff55, transparent),
+      radial-gradient(2px 2px at 10% 80%, #ffffff77, transparent);
+  animation: starDrift 40s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes starDrift {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-300px, -300px); }
+}
 }
