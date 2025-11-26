@@ -1,0 +1,147 @@
+:root{
+  --red: #e50914;
+  --blue: #0044ff;
+  --bg: #07070a;
+  --text: #f6f7f8;
+}
+
+/* Page */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background: radial-gradient(circle at top, #0a0a0f, #000);
+  color:var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Nav */
+.nav{padding:18px 24px}
+.nav-link{ color:var(--blue); text-decoration:none; font-weight:600; transition: .2s }
+.nav-link:hover{ color:var(--red); text-shadow:0 0 8px var(--red) }
+
+/* Title */
+.movie-title{
+     font-family: "typefesse", "Bebas Neue", sans-serif;
+  text-align:center;
+  margin:6px 20px 14px;
+  font-size:64px;
+  color:var(--red);
+  text-shadow:0 0 16px rgba(255,0,0,.25), 0 0 32px rgba(0,68,255,.18);
+  animation: titlePulse 3s infinite alternate;
+}
+
+/* Flex container: ASCII LEFT, Text RIGHT */
+.entry-container{
+  display:flex;
+  gap:36px;
+  align-items:flex-start;
+  justify-content:center;
+  padding:28px;
+  max-width:1200px;
+  margin:0 auto 80px;
+}
+
+/* LEFT (ascii) */
+.entry-left{
+  flex:0 1 420px; /* fixed-ish left column */
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+}
+
+/* ASCII art: NO box, plain background, glow only */
+.ascii-art{
+  font-family: monospace;
+  font-size:12px;
+  line-height:1;
+  color:#ff7a7a;
+  white-space:pre;
+  margin:0;
+  padding:0;          /* removed padding if you want tighter fit */
+  background:transparent; /* removed box */
+  border:0;
+  text-shadow:
+    0 0 8px rgba(229,9,20,0.9),
+    0 0 18px rgba(0,68,255,0.85);
+  animation: asciiGlow 3s infinite linear alternate;
+  overflow-x:auto;
+}
+
+/* RIGHT (text) */
+.entry-right{
+  flex:1 1 560px;
+  max-width:740px;
+  padding:6px 4px;
+}
+
+.section-heading{
+     font-family: "typefesse", "Bebas Neue", sans-serif;
+  margin:0 0 12px;
+  font-size:28px;
+  color:var(--blue);
+  letter-spacing:.5px;
+}
+
+/* paragraphs */
+.entry-right p{
+  font-size:18px;
+  line-height:1.6;
+  margin:0 0 14px;
+}
+
+/* Home button - transitions and base style */
+.home-btn{
+  padding:14px 28px;
+  font-size:18px;
+  border-radius:10px;
+  border:0;
+  background:var(--blue);
+  color:white;
+  cursor:pointer;
+  transition: all .25s ease;
+  box-shadow: 0 6px 18px rgba(0,68,255,0.18);
+}
+
+/* Hover states (JS will expand on hover) */
+.home-btn:hover{
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes asciiGlow{
+  0%{
+    color:#ff7a7a;
+    text-shadow: 0 0 8px rgba(229,9,20,0.9), 0 0 18px rgba(0,68,255,0.4);
+  }
+  50%{
+    color:#ffd7a6;
+    text-shadow: 0 0 14px rgba(255,215,166,0.95), 0 0 30px rgba(0,68,255,0.55);
+  }
+  100%{
+    color:#7ab3ff;
+    text-shadow: 0 0 10px rgba(122,179,255,0.95), 0 0 28px rgba(229,9,20,0.25);
+  }
+}
+
+@keyframes titlePulse{
+  from{ transform: translateY(0) }
+  to{ transform: translateY(-6px) scale(1.01) }
+}
+
+/* Responsive: mobile breakpoint stacks columns */
+@media (max-width: 768px){
+  .movie-title{ font-size:40px; padding: 0 12px }
+  .entry-container{ flex-direction:column; padding:16px; gap:18px; align-items:center }
+  .entry-left, .entry-right{ max-width:92% }
+  .ascii-art{ font-size:8px }
+  .home-btn{ width:100%; padding:14px; font-size:18px }
+}
+
+/* very small phones */
+@media (max-width: 420px){
+  .movie-title{ font-size:30px }
+  .ascii-art{ font-size:6px }
+  .entry-right p{ font-size:15px }
+}

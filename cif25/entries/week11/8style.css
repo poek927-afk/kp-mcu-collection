@@ -53,7 +53,7 @@ body::before{
 }
 .nav-link:hover { color: var(--gotg-mag); text-shadow: 0 0 10px var(--gotg-mag); }
 
-/* MOVIE TITLE — match Shang-Chi type/style */
+/* MOVIE TITLE  */
 .movie-title {
   font-family: "typefesse", "Bebas Neue", sans-serif;
   font-weight: 700;
@@ -121,7 +121,7 @@ body::before{
   animation: slideInRight 1.2s ease-out .25s forwards;
 }
 
-/* image (if you later add a GIF in left) */
+/* image  */
 .entry-left img{
   width: 100%;
   max-width: 420px;
