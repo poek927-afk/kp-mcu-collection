@@ -1,0 +1,97 @@
+/* Custom sword cursor */
+body {
+    cursor: url('imgs/Dark\ Sword\ &\ Shield--cursor--SweezyCursors.png'), auto;
+    background-color: #1b1b1b; /* dark Blade palette */
+    margin: 0;
+    padding: 0;
+    font-family: 'GaisyerMono', monospace;
+    color: #e0e0e0;
+}
+
+/* Flexbox layout */
+.entry-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
+    gap: 40px;
+}
+
+/* ASCII art */
+.ascii-art {
+    font-family: monospace;
+    font-size: 14px;
+    white-space: pre;
+    color: #ff1f1f; /* glowing red */
+    text-shadow:
+        0 0 5px #ff1f1f,
+        0 0 10px #ff4c4c,
+        0 0 15px #ff7f7f;
+    animation: glowPulse 2s ease-in-out infinite alternate;
+}
+
+/* Text section */
+.text-section {
+    max-width: 500px;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #f0f0f0;
+}
+
+/* Movie title */
+.movie-title {
+    font-family: "typefesse", sans-serif;
+    font-size: 70px;
+    color: #ff4c4c;
+    text-shadow: 0 0 8px #ff1f1f;
+    animation: titleFade 4s infinite alternate ease-in-out;
+}
+
+/* Back to homepage button */
+.home-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #ff1f1f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 20px;
+    transition: transform 0.25s, background-color 0.25s;
+}
+
+.home-btn:hover {
+    transform: scale(1.12);
+    background-color: #ff4c4c;
+}
+
+/* Animations */
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 5px #ff1f1f, 0 0 10px #ff4c4c; }
+    50% { text-shadow: 0 0 10px #ff4c4c, 0 0 20px #ff7f7f; }
+    100% { text-shadow: 0 0 5px #ff1f1f, 0 0 10px #ff4c4c; }
+}
+
+@keyframes titleFade {
+    0% { opacity: 0.8; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+    .entry-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .ascii-art {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .movie-title {
+        font-size: 50px;
+        text-align: center;
+    }
+}
