@@ -97,7 +97,23 @@ h2 {
     margin: 40px 0;
     flex-wrap: wrap; /* stacks on smaller screens */
 }
+/* ------------ HOME BUTTON ------------ */
+.home-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 22px;
+    background-color: #1e90ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 22px;
+    transition: transform 0.25s, background-color 0.25s;
+}
 
+.home-btn:hover {
+    transform: scale(1.12);
+    background-color: #ff1f1f;
+}
 .movie-section img {
     max-width: 400px;
     height: auto;

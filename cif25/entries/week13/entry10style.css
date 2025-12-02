@@ -1,0 +1,95 @@
+/* ------------ CUSTOM CURSOR (BIG A) ------------ */
+body {
+    cursor: url('imgs/Purple\ Avengers\ Logo\ Animated--cursor--SweezyCursors.png'), auto;
+    background-color: #0b1e3d; /* Avengers deep navy */
+    margin: 0;
+    padding: 0;
+    font-family: 'GaisyerMono', monospace;
+    color: #e2e8f0;
+}
+
+/* ------------ FLEXBOX LAYOUT ------------ */
+.entry-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    gap: 40px;
+}
+
+/* ASCII section */
+.ascii-art {
+    font-family: monospace;
+    font-size: 14px;
+    white-space: pre;
+    color: #7dc7ff;
+    text-shadow: 
+        0 0 4px #7dc7ff,
+        0 0 8px #1e90ff,
+        0 0 12px #63b3ff;
+    animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+/* Text section */
+.text-section {
+    max-width: 500px;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #f0f4ff;
+}
+
+/* Title styling */
+.movie-title {
+    font-family: "typefesse", sans-serif;
+    font-size: 70px;
+    color: #ff1f1f; /* Avengers red */
+    text-shadow: 0 0 8px #ff4444;
+    animation: titleFade 4s infinite alternate ease-in-out;
+}
+
+/* ------------ HOME BUTTON ------------ */
+.home-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 22px;
+    background-color: #1e90ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 22px;
+    transition: transform 0.25s, background-color 0.25s;
+}
+
+.home-btn:hover {
+    transform: scale(1.12);
+    background-color: #ff1f1f;
+}
+
+/* ------------ ANIMATIONS ------------ */
+@keyframes glowPulse {
+    0% { text-shadow: 0 0 4px #7dc7ff, 0 0 8px #1e90ff; }
+    50% { text-shadow: 0 0 10px #9bd7ff, 0 0 18px #4db6ff; }
+    100% { text-shadow: 0 0 4px #7dc7ff, 0 0 8px #1e90ff; }
+}
+
+@keyframes titleFade {
+    0% { opacity: 0.8; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+/* ------------ MOBILE BREAKPOINT ------------ */
+@media (max-width: 768px) {
+    .entry-container {
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    .ascii-art {
+        font-size: 10px;
+    }
+
+    .movie-title {
+        font-size: 50px;
+        text-align: center;
+    }
+}

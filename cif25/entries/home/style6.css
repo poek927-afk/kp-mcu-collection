@@ -24,6 +24,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    cursor: url('imgs/Purple\ Avengers\ Logo\ Animated--cursor--SweezyCursors.png'), auto;
 }
 
 /* Titles */
